@@ -3,14 +3,29 @@
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">{{ .Title }}</h1>
+              {{ with .Title }}
+                <h1 class="header-title">{{ . }}</h1>
+              {{ end }}
+            
+          {{ if eq .Section "posts" }}
+            {{ with .Params.author }}
+            <em> by {{ . }}</em>
+            {{ end }}
+          {{ end }} 
+          
+            {{- partial "get-tags.html" . -}}
+         
+           {{ if eq site.Params.digitalGarden false }}
                 {{ with .Date }}
                 {{ $ISO_time := dateFormat "2006-01-02T15:04:05-07:00" . }}
                 <div class="post-meta">
                     <time datetime="{{ $ISO_time }}" itemprop="datePublished"> {{ . | time.Format ":date_medium" }} </time>
                 </div>
                 {{ end }}
+               
+            {{ end }}                
             </header>
+            
             {{- if .Site.Params.toc -}}
                 {{ if not (eq .Params.toc false) }}
                 {{ $tocOpen := "" }}
@@ -29,7 +44,14 @@
                 {{ .Content }}
             </div>
         </article>
-        {{- partial "comments.html" . -}}
+
+ {{ if eq .Section "posts" }}
+   {{ if (fileExists "themes/rockon-hugo-blog-awesome/layouts/partials/custom_html.html") }}
+   {{ partial "custom_html.html" }}
+  {{ end }}   
+ {{ end }}
+  
+    <!-- {{- partial "comments.html" . -}} -->
     </main>
 </div>
 {{ end }}
