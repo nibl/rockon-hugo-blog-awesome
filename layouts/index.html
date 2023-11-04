@@ -16,14 +16,17 @@
     {{- partial "scriptsBodyStart.html" . -}}
     {{- partial "header.html" . -}}
     <div class="wrapper">
+      
   {{ if (fileExists "themes/rockon-hugo-blog-awesome/layouts/partials/custom_homepage.html") }}
   
     {{- partial "custom_homepage.html" . -}}
     
-   {{ else }}
-    {{ if (fileExists "themes/rockon-hugo-blog-awesome/layouts/partials/homepage_header.html") }}
-    {{- partial "homepage_header.html" . }}
-    {{ end }}
+  {{ else }}
+    
+      {{ if (fileExists "themes/rockon-hugo-blog-awesome/layouts/partials/homepage_header.html") }}
+      
+        {{- partial "homepage_header.html" . }}
+        
         <main aria-label="Content">
             <h3 class="posts-item-note" aria-label="Recent Posts">{{ T "home.recent_posts" }}</h3>
             {{/* Show last 5 posts in reverse date order */}}
@@ -39,9 +42,11 @@
                 {{ end }}
             </p>
             {{ end }}
-          {{ end }}  
         </main>
     </div>
+      {{ end }}
+     {{ end }}
+    
     {{- partial "footer.html" . -}}
     {{- partial "scriptsBodyEnd.html" . -}}
 </body>
