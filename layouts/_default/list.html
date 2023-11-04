@@ -1,19 +1,16 @@
 {{- define "main" -}}
 <div class="wrapper list-page">
     <header class="header">
-  {{ if eq site.Params.digitalGarden false }}      
         <h1 class="header-title center">{{ .Title }}</h1>
-  {{ end }}      
     </header>
     <main class="page-content" aria-label="Content">
-      
-    {{/* list only posts, exclude pages */}}
-    <!-- {{ if eq .Section "posts" }} -->
-    
         {{ range .Pages.GroupByDate "2006" }}
         {{ $year := .Key }}
-        <!-- <h2 class="post-year">{{ $year }}</h2> -->
-
+        
+     {{ if eq site.Params.digitalGarden false }}              
+        <h2 class="post-year">{{ $year }}</h2>
+     {{ end }}
+     
         {{/* create a list of posts for each month, with month as heading */}}
 
         {{ range .Pages }}
@@ -23,8 +20,6 @@
         {{ end }} {{/* end range .Pages */}}
 
         {{ end }} {{/* end range .Pages.GroupByDate "2006" */}}
-        
-      <!-- {{ end }} {{/* end if eq .Section "posts" */}} -->
 
     </main>
 </div>
