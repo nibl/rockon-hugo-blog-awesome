@@ -1,2 +1,8 @@
+
+{{/*  If noindex in page/post front matter, tell search engines not to index  */}}
+{{ if .Params.noindex }}
+  {{ partial "meta/noindex.html" . }}
+{{ end }}
+
 {{ partial "meta/standard.html" . }}
 {{ partial "meta/post.html" . }}
