@@ -1,0 +1,11 @@
+{{ $currentPage := . }}
+{{ range .Site.Menus.footer }}
+
+  <a class="footer-link {{ if or ($currentPage.IsMenuCurrent " footer" .)
+    
+    ($currentPage.HasMenuCurrent "footer" .) }}active{{ end }}" href="{{ .URL }}">
+        {{ .Name }}
+  </a> 
+
+{{ end }}
+
