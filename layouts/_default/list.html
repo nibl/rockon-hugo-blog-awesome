@@ -1,8 +1,12 @@
 {{- define "main" -}}
 <div class="wrapper list-page">
-    <header class="header">
+
+{{ if eq site.Params.digitalGarden false }}              
+     <header class="header">
         <h1 class="header-title center">{{ .Title }}</h1>
     </header>
+{{ end }}
+
     <main class="page-content" aria-label="Content">
         {{ range .Pages.GroupByDate "2006" }}
         {{ $year := .Key }}

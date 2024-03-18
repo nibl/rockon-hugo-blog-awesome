@@ -5,12 +5,10 @@
     <div class="footer_social-icons">
         {{- partial "socialIcons.html" site.Params.socialIcons -}}
     </div>
-
-  <!-- custom footer links -->
+      <!-- custom footer links -->
        <div class="footer_legal-links">
      {{- partial "footer-links.html" . -}}
       </div>
-      
     <small class="footer_copyright">
         © {{ now.Format "2006" }} {{ .Site.Params.author.name }}.
         {{ T "footer.disclaimer" | safeHTML }}

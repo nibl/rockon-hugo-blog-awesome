@@ -65,7 +65,7 @@ The blockquote element represents content that is quoted from another source, op
 
 ## Tables
 
-Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.
+Tables aren't part of the core Markdown spec, but Hugo supports them out-of-the-box.
 
    Name | Age
 --------|------
@@ -132,13 +132,13 @@ Use the backtick to refer to a `variable` within a sentence.
 ### Ordered List
 
 1. First item
-2. Second item
+2. Second item with some `code` in it
 3. Third item
 
 ### Unordered List
 
 * List item
-* Another item
+* Another item with some `code` in it
 * And another item
 
 ### Nested list
